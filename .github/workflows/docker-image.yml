@@ -14,17 +14,21 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Checkout Dockerhub
+    - name: Authenticate Dockerhub
       uses: docker/login-action@v2
       with: 
         username: khunakornp123
         password: ${{secrets.DOCKER_TOKEN}}
 
-    - name: Build and tag docker image
+    - name: Build & Tag Docker Image
       run: docker compose -f docker-compose.yaml build
 
-    - name: Tag and push backend
-      run: docker tag todo101-todo-backend khunakornp123/todo-backend:latest
+    - name: Tag & Push Backend Image
+      run: | 
+        docker tag todo101-ISP-2025-todo-backend khunakornp123/todo-backend:latest
+        docker push khunakornp123/todo-backend:latest
 
-    - name: Tag and push frontend
-      run: docker tag todo101-todo-frontend khunakornp123/todo-frontend:latest
+    - name: Tag & Push Frontend Image
+      run: |
+        docker tag todo101-ISP-2025-todo-frontend khunakornp123/todo-frontend:latest
+        docker push khunakornp123/todo-backend:latest
