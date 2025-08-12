@@ -25,10 +25,10 @@ jobs:
 
     - name: Tag & Push Backend Image
       run: | 
-        docker tag todo101-ISP-2025-todo-backend khunakornp123/todo-backend:latest
+        docker tag todo101-isp-2025-todo-backend khunakornp123/todo-backend:latest
         docker push khunakornp123/todo-backend:latest
 
     - name: Tag & Push Frontend Image
       run: |
-        docker tag todo101-ISP-2025-todo-frontend khunakornp123/todo-frontend:latest
+        docker tag todo101-isp-2025-todo-frontend khunakornp123/todo-frontend:latest
         docker push khunakornp123/todo-backend:latest
