@@ -27,11 +27,13 @@ app.post('/tasks', async (req, res) => {
 
 app.put('/tasks/:id', async (req, res) => {
     const tasks = await Task.findByIdAndUpdate(req.params.id, req.body);
+    console.log(req)
     res.json(tasks);
 })
 
 app.delete('/tasks/:id', async (req, res) => {
     const tasks = await Task.findByIdAndDelete(req.params.id);
+    console.log(req)
     res.sendStatus(204)
 })
 
@@ -48,7 +50,7 @@ const connectToDB = () => {
         })
       })
       .catch( err => {
-        console.log('DB go BOOOM', err.message);
+        console.log('DB go BOOOM');
         setTimeout(connectWithRetry, 500);
       })
 }
